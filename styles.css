@@ -21,196 +21,41 @@ body {
 }
 
 .input-task {
-    border: none;
-    border-radius: 7px;
-    width: 300px;
-    height: 40px;
-    padding-left: 10px;
-}
-
-/* Estilos para o botão */
-/*
-.button-add-task {
-    border: none;
-    display: block;
-    position: relative;
-    padding: 0.7em 2.4em;
-    font-size: 13px;
-    background: transparent;
-    cursor: pointer;
-    user-select: none;
+    border: 2px solid transparent;
+    width: 23em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
     overflow: hidden;
-    color: royalblue;
-    z-index: 1;
-    font-family: inherit;
-    font-weight: 500;
-    margin-top: -39px;
-    margin-left: 330px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  
+  .input-task:hover,
+  .input-task:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+  }
+  
 
-}
 
-/* Estilos para o pseudo-elemento span dentro do botão */
 .button-add-task span {
     position: absolute;
-    /* Posiciona o span em relação ao botão */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background: transparent;
-    /* Fundo transparente */
     z-index: -1;
-    /* Coloca o span atrás do texto do botão */
     border: 4px solid royalblue;
-    /* Borda azul ao redor do botão */
 }
-/*
-.button-add-task span::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 8%;
-    height: 500%;
-    background: var(--lightgray);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-60deg);
-    transition: all 0.3s;
-}
-
-.button-add-task:hover span::before {
-    transform: translate(-50%, -50%) rotate(-90deg);
-    width: 100%;
-    background: royalblue;
-
-}
-
-.button-add-task:hover {
-    color: white;
-
-}
-
-.button-add-task:active span::before {
-    background: #2751cd;
-} */
-
-/*button {
-    position: relative;
-    margin: 0;
-    padding: 10px 35px;
-    outline: none;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    background-color: #fff;
-    border: 1px solid rgba(22, 76, 167, 0.6);
-    border-radius: 100px;
-    color: #1d89ff;
-    font-weight: 400;
-    font-family: inherit;
-    z-index: 0;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
-    margin-left: 315px;
-    margin-top: -40px;
-  }
-  
-  button span {
-    color: #164ca7;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.7px;
-  }
-  
-  button:hover {
-    animation: rotate624 0.7s ease-in-out both;
-  }
-  
-  button:hover span {
-    animation: storm1261 0.7s ease-in-out both;
-    animation-delay: 0.06s;
-  }
-  
-  @keyframes rotate624 {
-    0% {
-      transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-  
-    25% {
-      transform: rotate(3deg) translate3d(0, 0, 0);
-    }
-  
-    50% {
-      transform: rotate(-3deg) translate3d(0, 0, 0);
-    }
-  
-    75% {
-      transform: rotate(1deg) translate3d(0, 0, 0);
-    }
-  
-    100% {
-      transform: rotate(0deg) translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes storm1261 {
-    0% {
-      transform: translate3d(0, 0, 0) translateZ(0);
-    }
-  
-    25% {
-      transform: translate3d(4px, 0, 0) translateZ(0);
-    }
-  
-    50% {
-      transform: translate3d(-3px, 0, 0) translateZ(0);
-    }
-  
-    75% {
-      transform: translate3d(2px, 0, 0) translateZ(0);
-    }
-  
-    100% {
-      transform: translate3d(0, 0, 0) translateZ(0);
-    }
-  }
-  
-  .btn-shine {
-    border: 1px solid;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .btn-shine span {
-    z-index: 20;
-  }
-  
-  .btn-shine:after {
-    background: #38ef7d;
-    content: "";
-    height: 155px;
-    left: -75px;
-    opacity: 0.4;
-    position: absolute;
-    top: -50px;
-    transform: rotate(35deg);
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-    width: 50px;
-    z-index: -10;
-  }
-  
-  .btn-shine:hover:after {
-    left: 120%;
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-  } */
 
   .c-button {
     color: #000;
     font-weight: 400;
-    font-size: 10px;
+    font-size:8px;
     text-decoration: none;
     padding: 0.9em 1.6em;
     cursor: pointer;
@@ -219,14 +64,15 @@ body {
     position: relative;
     z-index: 1;
     margin-left: 340px;
-    margin-top: -65px;
+    margin-top: -60px;
+    border-radius: 5px;
   }
   
   .c-button--gooey {
-    color: #06c8d9;
+    color: #4A9DEC; 
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 4px solid #06c8d9;
+    border: 4px solid #4A9DEC;
     border-radius: 0;
     position: relative;
     transition: all 700ms ease;
@@ -245,7 +91,7 @@ body {
   }
   
   .c-button--gooey .c-button__blobs div {
-    background-color: #06c8d9;
+    background-color: #4A9DEC;
     width: 34%;
     height: 100%;
     border-radius: 100%;
