@@ -1,64 +1,83 @@
-const button = document.querySelector('.button-add-task')
-const input = document.querySelector('.input-task')
-const listaCompleta = document.querySelector('.list-tasks')
+const button = document.querySelector('.button-add-task');
+const input = document.querySelector('.input-task');
+const listaCompleta = document.querySelector('.list-tasks');
 
-let minhaListaDeItens = []
+let minhaListaDeItens = [];
 
+// Adiciona uma nova tarefa à lista
 function adicionarNovaTarefa() {
+  if (input.value.trim() === '') {
+    alert('Digite uma tarefa!');
+    return;
+  }
+
   minhaListaDeItens.push({
     tarefa: input.value,
     concluida: false,
-  })
+  });
 
-  input.value = ''
-
-  mostrarTarefas()
+  input.value = ''; // Limpa o campo de input
+  mostrarTarefas();
 }
 
+// Mostra as tarefas na lista
 function mostrarTarefas() {
-  let novaLi = ''
-
-  // ['comprar café', 'estudar programação']
+  let novaLi = '';
 
   minhaListaDeItens.forEach((item, posicao) => {
-    novaLi =
-      novaLi +
-    //   TROCAR A FOTO AQUIII!!!!!!!!!!!!`
-        // <li class="task ${item.concluida && 'done'}">
-            // <img src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
-            <p>${item.tarefa}</p>
-            // <img src="./img/trash.png" alt="tarefa-para-o-lixo" onclick="deletarItem(${posicao})">
-        // </li>
-        
-        // `
-  })
+    novaLi += `
+      <li class="task ${item.concluida ? 'done' : ''}">
+        <img src="./img/checked.png" alt="check-na-tarefa" class="check-icon" data-posicao="${posicao}">
+        <p>${item.tarefa}</p>
+        <img src="./img/trash.png" alt="tarefa-para-o-lixo" class="trash-icon" data-posicao="${posicao}">
+      </li>
+    `;
+  });
 
-  listaCompleta.innerHTML = novaLi
+  listaCompleta.innerHTML = novaLi;
 
-  localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
+  localStorage.setItem('lista', JSON.stringify(minhaListaDeItens));
 }
 
+// Marca a tarefa como concluída ou não
 function concluirTarefa(posicao) {
-  minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida
-
-  mostrarTarefas()
+  minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
+  mostrarTarefas();
 }
 
+// Deleta uma tarefa
 function deletarItem(posicao) {
-  minhaListaDeItens.splice(posicao, 1)
-
-  mostrarTarefas()
+  minhaListaDeItens.splice(posicao, 1);
+  mostrarTarefas();
 }
 
+// Recarrega as tarefas do localStorage
 function recarregarTarefas() {
-  const tarefasDoLocalStorage = localStorage.getItem('lista')
+  const tarefasDoLocalStorage = localStorage.getItem('lista');
 
   if (tarefasDoLocalStorage) {
-    minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
+    minhaListaDeItens = JSON.parse(tarefasDoLocalStorage);
   }
 
-  mostrarTarefas()
+  mostrarTarefas();
 }
 
-recarregarTarefas()
-button.addEventListener('click', adicionarNovaTarefa)
+// Configura os event listeners
+function configurarEventos() {
+  listaCompleta.addEventListener('click', function(event) {
+    const target = event.target;
+    const posicao = target.getAttribute('data-posicao');
+
+    if (target.classList.contains('check-icon')) {
+      concluirTarefa(posicao);
+    }
+
+    if (target.classList.contains('trash-icon')) {
+      deletarItem(posicao);
+    }
+  });
+}
+
+recarregarTarefas();
+button.addEventListener('click', adicionarNovaTarefa);
+configurarEventos();

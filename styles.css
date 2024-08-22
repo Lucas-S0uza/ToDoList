@@ -22,13 +22,14 @@ body {
 
 .input-task {
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     width: 300px;
     height: 40px;
     padding-left: 10px;
 }
 
 /* Estilos para o botão */
+/*
 .button-add-task {
     border: none;
     display: block;
@@ -63,43 +64,145 @@ body {
     border: 4px solid royalblue;
     /* Borda azul ao redor do botão */
 }
-
-/* Estilos para o pseudo-elemento ::before dentro do span */
+/*
 .button-add-task span::before {
     content: "";
     display: block;
     position: absolute;
     width: 8%;
-    /* Largura inicial da faixa */
     height: 500%;
-    /* Altura da faixa */
     background: var(--lightgray);
-    /* Cor inicial de fundo */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-60deg);
-    /* Centraliza e rotaciona a faixa */
     transition: all 0.3s;
-    /* Transição suave para as mudanças */
 }
 
-/* Estilos ao passar o mouse sobre o botão */
 .button-add-task:hover span::before {
     transform: translate(-50%, -50%) rotate(-90deg);
-    /* Rotaciona e ajusta a faixa */
     width: 100%;
-    /* Expande a faixa para preencher o botão */
     background: royalblue;
-    /* Cor de fundo ao passar o mouse */
+
 }
 
 .button-add-task:hover {
     color: white;
-    /* Cor do texto ao passar o mouse */
+
 }
 
-/* Estilos ao clicar no botão */
 .button-add-task:active span::before {
     background: #2751cd;
-    /* Cor de fundo ao clicar */
-}
+} */
+
+button {
+    position: relative;
+    margin: 0;
+    padding: 11px 35px;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 1px solid rgba(22, 76, 167, 0.6);
+    border-radius: 100px;
+    color: #1d89ff;
+    font-weight: 400;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    margin-left: 300px;
+    margin-top: -40px;
+  }
+  
+  button span {
+    color: #164ca7;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+  }
+  
+  button:hover {
+    animation: rotate624 0.7s ease-in-out both;
+  }
+  
+  button:hover span {
+    animation: storm1261 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate624 {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+  
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+  
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+  
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes storm1261 {
+    0% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  
+    25% {
+      transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+  
+    50% {
+      transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+  
+    75% {
+      transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+  
+    100% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  }
+  
+  .btn-shine {
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .btn-shine span {
+    z-index: 20;
+  }
+  
+  .btn-shine:after {
+    background: #38ef7d;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  
+  .btn-shine:hover:after {
+    left: 120%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
