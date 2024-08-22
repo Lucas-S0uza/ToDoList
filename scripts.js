@@ -1,4 +1,4 @@
-const button = document.querySelector('.button-add-task');
+const button = document.querySelector('.c-button--gooey'); // Atualizado para corresponder ao HTML
 const input = document.querySelector('.input-task');
 const listaCompleta = document.querySelector('.list-tasks');
 
@@ -25,6 +25,10 @@ function mostrarTarefas() {
   let novaLi = '';
 
   minhaListaDeItens.forEach((item, posicao) => {
+    
+    
+            //   ALTERAR IMAGENS E MAIS ALGUMAS COISAS 
+
     // novaLi += `
     //   <li class="task ${item.concluida ? 'done' : ''}">
         // <img src="./img/checked.png" alt="check-na-tarefa" class="check-icon" data-posicao="${posicao}">
@@ -32,6 +36,8 @@ function mostrarTarefas() {
         // <img src="./img/trash.png" alt="tarefa-para-o-lixo" class="trash-icon" data-posicao="${posicao}">
     //   </li>
     // `;
+
+
   });
 
   listaCompleta.innerHTML = novaLi;
