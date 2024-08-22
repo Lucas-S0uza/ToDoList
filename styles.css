@@ -1,14 +1,15 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     outline: none;
 }
 
-body{
-    background: url("./img/background.png");
+body {
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+
 }
 
 .container {
@@ -27,57 +28,78 @@ body{
     padding-left: 10px;
 }
 
+/* Estilos para o botão */
 .button-add-task {
     border: none;
-    border-radius: 5px;
-    height: 40px;
-    background-color: #003329;
-    color: #ffffff;
-    font-size: 17px;
-    padding: 0 15px;
-    float: right;
+    display: block;
+    position: relative;
+    padding: 0.7em 2.4em;
+    font-size: 13px;
+    background: transparent;
     cursor: pointer;
-    font-weight: 700;
+    user-select: none;
+    overflow: hidden;
+    color: royalblue;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+    margin-top: -39px;
+    margin-left: 330px;
+
+}
+
+/* Estilos para o pseudo-elemento span dentro do botão */
+.button-add-task span {
+    position: absolute;
+    /* Posiciona o span em relação ao botão */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    /* Fundo transparente */
+    z-index: -1;
+    /* Coloca o span atrás do texto do botão */
+    border: 4px solid royalblue;
+    /* Borda azul ao redor do botão */
+}
+
+/* Estilos para o pseudo-elemento ::before dentro do span */
+.button-add-task span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8%;
+    /* Largura inicial da faixa */
+    height: 500%;
+    /* Altura da faixa */
+    background: var(--lightgray);
+    /* Cor inicial de fundo */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-60deg);
+    /* Centraliza e rotaciona a faixa */
+    transition: all 0.3s;
+    /* Transição suave para as mudanças */
+}
+
+/* Estilos ao passar o mouse sobre o botão */
+.button-add-task:hover span::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    /* Rotaciona e ajusta a faixa */
+    width: 100%;
+    /* Expande a faixa para preencher o botão */
+    background: royalblue;
+    /* Cor de fundo ao passar o mouse */
 }
 
 .button-add-task:hover {
-    opacity: 0.8;
+    color: white;
+    /* Cor do texto ao passar o mouse */
 }
 
-.button-add-task:active {
-    opacity: 0.6;
-}
-
-.list-tasks {
-    width: 100%;
-    list-style: none;
-    margin-top: 30px;
-}
-
-.task {
-    background-color: #F2F2F2;
-    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-img {
-    height: 25px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.task:hover img {
-    opacity: 1;
-}
-
-.done {
-    background-color: #8fac55;
-    text-decoration: line-through;
+/* Estilos ao clicar no botão */
+.button-add-task:active span::before {
+    background: #2751cd;
+    /* Cor de fundo ao clicar */
 }
