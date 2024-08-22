@@ -25,13 +25,13 @@ function mostrarTarefas() {
   let novaLi = '';
 
   minhaListaDeItens.forEach((item, posicao) => {
-    novaLi += `
-      <li class="task ${item.concluida ? 'done' : ''}">
-        <img src="./img/checked.png" alt="check-na-tarefa" class="check-icon" data-posicao="${posicao}">
-        <p>${item.tarefa}</p>
-        <img src="./img/trash.png" alt="tarefa-para-o-lixo" class="trash-icon" data-posicao="${posicao}">
-      </li>
-    `;
+    // novaLi += `
+    //   <li class="task ${item.concluida ? 'done' : ''}">
+        // <img src="./img/checked.png" alt="check-na-tarefa" class="check-icon" data-posicao="${posicao}">
+        // <p>${item.tarefa}</p>
+        // <img src="./img/trash.png" alt="tarefa-para-o-lixo" class="trash-icon" data-posicao="${posicao}">
+    //   </li>
+    // `;
   });
 
   listaCompleta.innerHTML = novaLi;
