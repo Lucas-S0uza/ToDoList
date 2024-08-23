@@ -1,14 +1,18 @@
-const button = document.querySelector('.c-button--gooey'); // Atualizado para corresponder ao HTML
+const button = document.querySelector('.c-button--gooey');
 const input = document.querySelector('.input-task');
 const listaCompleta = document.querySelector('.list-tasks');
 
+// Inicializa a lista de itens
 let minhaListaDeItens = [];
 
 // Adiciona uma nova tarefa à lista
 function adicionarNovaTarefa() {
+  const errorMessage = document.querySelector('.error-message');
+  
   if (input.value.trim() === '') {
-    // Mensagem de erro visual em vez de alert
-    document.querySelector('.error-message').textContent = 'Digite uma tarefa!';
+    if (errorMessage) {
+      errorMessage.textContent = 'Digite uma tarefa!';
+    }
     return;
   }
 
@@ -19,6 +23,9 @@ function adicionarNovaTarefa() {
 
   input.value = ''; // Limpa o campo de input
   mostrarTarefas();
+  if (errorMessage) {
+    errorMessage.textContent = ''; // Limpa mensagem de erro
+  }
 }
 
 // Mostra as tarefas na lista
@@ -37,8 +44,6 @@ function mostrarTarefas() {
 
   listaCompleta.innerHTML = novaLi;
   localStorage.setItem('lista', JSON.stringify(minhaListaDeItens));
-
-  configurarEventos(); // Reassocia os eventos após atualizar a lista
 }
 
 // Marca a tarefa como concluída ou não
@@ -68,15 +73,19 @@ function configurarEventos() {
     const target = event.target;
     const posicao = target.getAttribute('data-posicao');
 
-    if (target.classList.contains('check-icon')) {
-      concluirTarefa(posicao);
-    }
+    if (posicao !== null) { // Verifica se o atributo data-posicao existe
+      if (target.classList.contains('check-icon')) {
+        concluirTarefa(posicao);
+      }
 
-    if (target.classList.contains('trash-icon')) {
-      deletarItem(posicao);
+      if (target.classList.contains('trash-icon')) {
+        deletarItem(posicao);
+      }
     }
   });
 }
 
+// Inicia a aplicação
 recarregarTarefas();
+configurarEventos(); // Configura eventos uma vez no início
 button.addEventListener('click', adicionarNovaTarefa);

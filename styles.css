@@ -123,55 +123,55 @@ body {
   }
 
   /* github button */
+.buttonlink {
+  text-decoration: none;
+}
 
-.Btn {
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.button {
   display: flex;
-  align-items: center;
   justify-content: center;
-  transition-duration: .4s;
+  align-items: center;
+  padding: 5px 7px;
+  gap: 15px;
+  background-color: #181717;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
   cursor: pointer;
-  position: relative;
-  background-color: rgb(31, 31, 31);
-  overflow: hidden;
-  margin-left: 180px;
+  transition: 400ms;
+  text-decoration: none;
+  margin-left: 160px;
 }
 
-.svgIcon {
-  transition-duration: .3s;
+.button .text {
+  color: white;
+  font-weight: 700;
+  font-size: 8px;
+  transition: 400ms;
 }
 
-.svgIcon path {
-  fill: white;
+.button svg path {
+  transition: 400ms;
 }
 
-.text {
-  position: absolute;
-  color: rgb(255, 255, 255);
-  width: 120px;
-  font-weight: 600;
-  opacity: 0;
-  transition-duration: .4s;
+.button:hover {
+  background-color: transparent;
 }
 
-.Btn:hover {
-  width: 110px;
-  transition-duration: .4s;
-  border-radius: 30px;
+.button:hover .text {
+  color: #181717;
 }
 
-.Btn:hover .text {
-  opacity: 1;
-  transition-duration: .4s;
+.button:hover svg path {
+  fill: #181717;
 }
 
-.Btn:hover .svgIcon {
-  opacity: 0;
-  transition-duration: .3s;
-}
+
+
+
+
+
 
 .check-icon {
   width: 30px;
